@@ -28,7 +28,7 @@ public class VendaService {
                         "\nProduto: " + item.getProduto().getDescricao());
             }
             catch (VendaException e) {
-                System.out.println(e.toString());
+                System.out.println(e);
                 listaVendas.clear();
                 break;
             }
@@ -37,7 +37,7 @@ public class VendaService {
     }
 
     public static void imprimeListaVendas() {
-        if(listaVendas == null) {
+        if(listaVendas != null) {
             System.out.println("-------------------");
             System.out.println("Produtos Comprados: ");
             for (Venda venda : listaVendas) {

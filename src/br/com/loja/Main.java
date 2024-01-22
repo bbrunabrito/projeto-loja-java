@@ -4,7 +4,6 @@ import br.com.loja.controller.MenuController;
 import br.com.loja.models.pessoa.Cliente;
 import br.com.loja.models.pessoa.Vendedor;
 import br.com.loja.models.produto.Produto;
-import br.com.loja.services.PessoaService;
 import br.com.loja.services.ProdutoService;
 import br.com.loja.services.VendaService;
 import br.com.loja.view.Menu;
@@ -43,11 +42,11 @@ public class Main {
 //        PessoaService.registraPessoa(v1);
 //        PessoaService.registraPessoa(v1);
 
-        ProdutoService.criaProduto(p1);
-        ProdutoService.criaProduto(p2);
+        ProdutoService.registraNovoProduto(p1);
+        ProdutoService.registraNovoProduto(p2);
         VendaService.adicionarCarrinhoCompras(p1, BigDecimal.TWO);
         VendaService.adicionarCarrinhoCompras(p2, BigDecimal.valueOf(11));
-        VendaService.concluirComprar();
+        VendaService.processaCompra();
 
 
         /*ProdutoService.criaProduto(p1);

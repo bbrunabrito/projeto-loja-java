@@ -1,11 +1,10 @@
 package br.com.loja.controller;
 
+import br.com.loja.exceptions.VendaException;
 import br.com.loja.models.pessoa.Cliente;
 import br.com.loja.models.pessoa.Vendedor;
 import br.com.loja.models.produto.Produto;
-import br.com.loja.services.PessoaService;
-import br.com.loja.services.ProdutoService;
-import br.com.loja.services.VendaService;
+import br.com.loja.services.*;
 import br.com.loja.view.Menu;
 
 import java.math.BigDecimal;
@@ -20,7 +19,7 @@ public class MenuController {
         this.input = new Scanner(System.in);
     }
 
-    public void processarOpcao(int opcao) {
+    public void processarOpcao(int opcao) throws VendaException {
         switch (opcao) {
             case 1:
                 criaProduto();
@@ -58,7 +57,7 @@ public class MenuController {
         String codigo = input.nextLine();
 
         Produto novoProduto = new Produto(descricao, preco, estoque, codigo);
-        ProdutoService.criaProduto(novoProduto);
+        ProdutoService.registraNovoProduto(novoProduto);
     }
 
     private void criaVendedor() {
@@ -73,7 +72,7 @@ public class MenuController {
         String cod_vendedor = input.nextLine();
 
         Vendedor novoVendedor = new Vendedor(nome, idade, genero, cod_vendedor);
-        PessoaService.registraPessoa(novoVendedor);
+        VendedorService.registraVendedor(novoVendedor);
     }
 
     private void criaCliente() {
@@ -88,7 +87,7 @@ public class MenuController {
         String cpf = input.nextLine();
 
         Cliente novoCliente = new Cliente(nome, idade, genero, cpf);
-        PessoaService.registraPessoa(novoCliente);
+        ClienteService.registraCliente(novoCliente);
     }
 
     private void realizaVenda() {
@@ -117,7 +116,7 @@ public class MenuController {
 
         } while (!option.equals("2"));
 
-        VendaService.concluirComprar();
+        VendaService.processaCompra();
         VendaService.imprimeListaVendas();
     }
 
