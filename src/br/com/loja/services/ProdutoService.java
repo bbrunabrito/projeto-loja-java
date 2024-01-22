@@ -4,7 +4,6 @@ import br.com.loja.exceptions.CodigoErro;
 import br.com.loja.exceptions.VendaException;
 import br.com.loja.models.produto.Produto;
 
-import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -12,12 +11,13 @@ import java.util.Objects;
 public class ProdutoService {
     private static List<Produto> listaProdutos = new ArrayList<>();
 
-    public static List<Produto> getListaProdutos() {
-        return listaProdutos;
-    }
-
-    public static void subtraiEstoque(Produto produto, BigDecimal quantidade) {
-        produto.setEstoque(produto.getEstoque().subtract(quantidade));
+    public static void registraNovoProduto(Produto novoProduto) {
+        try {
+            checaSeProdutoResgitrado(novoProduto);
+        }
+        catch (VendaException e) {
+            System.out.println("Erro no cadastro:\n" + e);
+        }
     }
 
     public static Produto procuraProdutoPorCodigo(String codigo) {
@@ -29,7 +29,7 @@ public class ProdutoService {
         return null;
     }
 
-    private static void checaProdutoRegistrado(Produto novoProduto) throws VendaException {
+    private static void checaSeProdutoResgitrado(Produto novoProduto) throws VendaException {
         if(listaProdutos.contains(novoProduto)) {
             throw new VendaException("Erro no registro do produto", "Produto já registrado no sistema!", CodigoErro.PRODUTO_NAO_REGISTRADO);
         }
@@ -49,12 +49,5 @@ public class ProdutoService {
         }
     }
 
-    public static void criaProduto(Produto novoProduto) {
-        try {
-            checaProdutoRegistrado(novoProduto);
-        }
-        catch (VendaException e) {
-            System.out.println("Erro no cadastro:\n" + e);
-        }
-    }
+
 }
