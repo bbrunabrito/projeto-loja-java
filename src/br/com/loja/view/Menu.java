@@ -2,6 +2,8 @@ package br.com.loja.view;
 
 
 import br.com.loja.controller.MenuController;
+import br.com.loja.exceptions.VendaException;
+
 import java.util.Objects;
 import java.util.Scanner;
 
@@ -14,7 +16,7 @@ public class Menu {
         this.input = input;
     }
 
-    public void exibirMenu() {
+    public void exibirMenu() throws VendaException {
         String opcao;
         do {
             System.out.println("***************************************");
@@ -27,7 +29,7 @@ public class Menu {
             System.out.print("Escolha uma opção: ");
 
             opcao = input.nextLine();
-            controller.processarOpcao(Integer.valueOf(opcao));
+            controller.processarOpcao(Integer.parseInt(opcao));
 
         } while (!Objects.equals(opcao, "0"));
     }
