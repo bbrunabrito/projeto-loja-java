@@ -111,8 +111,8 @@ Utilizando o JUnit(4 ou 5), escreva testes unitários que apresentem uma cobertu
 
 ### Menu
 Foi construído um Menu para que o usuário possa interagir com o sistema da loja.<br>
-(![Menu do Programa](https://github.com/bbrunabrito/projeto-loja-java/assets/80168079/1d7ac987-4b5b-440d-9d61-9050470b7db0)
-)
+![Menu do Programa](https://github.com/bbrunabrito/projeto-loja-java/assets/80168079/1d7ac987-4b5b-440d-9d61-9050470b7db0)
+
 
 ---
 ## Licença
