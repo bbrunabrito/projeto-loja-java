@@ -10,6 +10,10 @@ import java.util.List;
 public class VendedorService {
     private static List<Vendedor> listaVendedores = new ArrayList<>();
 
+    public static List<Vendedor> getListaVendedores() {
+        return listaVendedores;
+    }
+
     public static void registraVendedor(Vendedor novoVendedor) {
         try {
             checaSeVendedorExiste(novoVendedor);
@@ -20,8 +24,14 @@ public class VendedorService {
         catch (VendaException e) {
             System.out.println(e);
         }
+        catch (RuntimeException e) {
+            System.out.println(e);
+        }
     }
     public static void imprimeListaVendedores() {
+        if(listaVendedores.isEmpty()) {
+            throw new RuntimeException("Não há vendedores registrados no sistema");
+        }
         for (Vendedor vendedor : listaVendedores) {
             System.out.print(vendedor.toString());
             System.out.println("\n-------------------\n");

@@ -10,7 +10,11 @@ import java.util.List;
 public class ClienteService {
     private static List<Cliente> listaClientes = new ArrayList<>();
 
-    public static void registraCliente(Cliente novoCliente) {
+    public static List<Cliente> getListaClientes() {
+        return listaClientes;
+    }
+
+    public static void registraCliente(Cliente novoCliente) throws VendaException {
          try {
              checaSeClienteExiste(novoCliente);
              listaClientes.add(novoCliente);
@@ -22,6 +26,10 @@ public class ClienteService {
          }
     }
     public static void imprimeListaClientes() {
+        if(listaClientes.isEmpty()) {
+            throw new RuntimeException("Não existe clientes cadastrados no sistema");
+        }
+
         System.out.println("-------------------");
         System.out.println("Lista de Clientes Registrados: ");
         for (Cliente cliente : listaClientes) {

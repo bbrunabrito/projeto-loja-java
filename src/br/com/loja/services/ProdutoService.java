@@ -11,6 +11,10 @@ import java.util.Objects;
 public class ProdutoService {
     private static List<Produto> listaProdutos = new ArrayList<>();
 
+    public static List<Produto> getListaProdutos() {
+        return listaProdutos;
+    }
+
     public static void registraNovoProduto(Produto novoProduto) {
         try {
             checaSeProdutoResgitrado(novoProduto);
