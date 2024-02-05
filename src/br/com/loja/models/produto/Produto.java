@@ -9,6 +9,10 @@ public class Produto {
     private BigDecimal estoque;
     private String codigo;
 
+
+    public Produto(){}
+
+
     public Produto(String descricao, BigDecimal preco, BigDecimal estoque, String codigo) {
         this.estoque = estoque;
         this.descricao = descricao;

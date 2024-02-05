@@ -7,6 +7,8 @@ public class Pessoa {
     private BigDecimal idade;
     private String genero;
 
+    public Pessoa() {}
+
     public Pessoa(String nome, BigDecimal idade, String genero) {
         this.nome = nome;
         this.idade = idade;

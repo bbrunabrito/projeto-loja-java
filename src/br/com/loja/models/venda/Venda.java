@@ -4,6 +4,7 @@ import br.com.loja.models.produto.Produto;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.util.Objects;
 
 public class Venda {
     private BigDecimal valorVenda;
@@ -57,5 +58,17 @@ public class Venda {
                 "\nQuantidade: " + this.getQuantidade() +
                 "\nValor da Venda: " + this.getValorVenda() +
                 "\nData da Venda: " + this.getDataVenda();
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Venda venda)) return false;
+        return Objects.equals(produto, venda.produto);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(produto);
     }
 }

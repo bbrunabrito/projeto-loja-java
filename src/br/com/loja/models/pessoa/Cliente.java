@@ -6,6 +6,8 @@ import java.util.Objects;
 public class Cliente extends Pessoa {
     private String cpf;
 
+    public Cliente(){ super();}
+
     public Cliente(String nome, BigDecimal idade, String genero, String cpf) {
         super(nome, idade, genero);
         this.cpf = cpf;
@@ -30,8 +32,7 @@ public class Cliente extends Pessoa {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Cliente cliente = (Cliente) o;
+        if (!(o instanceof Cliente cliente)) return false;
         return Objects.equals(cpf, cliente.cpf);
     }
 
