@@ -111,8 +111,9 @@ Utilizando o JUnit(4 ou 5), escreva testes unitários que apresentem uma cobertu
 
 ### Menu
 Foi construído um Menu para que o usuário possa interagir com o sistema da loja.<br>
-![Menu do Programa](captures/Captura de tela 2024-02-05 110336.png)
+(![Menu do Programa](https://github.com/bbrunabrito/projeto-loja-java/assets/80168079/1d7ac987-4b5b-440d-9d61-9050470b7db0)
+)
 
 ---
 ## Licença
-Esse projeto é licenciado pelo [MIT](https://github.com/bbrunabrito/projeto-loja-totvs/blob/262c671668cca61105c14e43f998632cac07b7b6/LICENSE).
+Esse projeto é licenciado pelo [MIT](LICENSE).
