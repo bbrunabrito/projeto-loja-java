@@ -20,6 +20,10 @@ public class VendaException extends Exception {
         return detalhes;
     }
 
+    public CodigoErro getCodigoErro() {
+        return codigoErro;
+    }
+
     @Override
     public String toString() {
         return "\n" +
