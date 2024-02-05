@@ -1,6 +1,5 @@
 package br.com.loja;
 
-import br.com.loja.controller.MenuController;
 import br.com.loja.exceptions.VendaException;
 import br.com.loja.models.pessoa.Cliente;
 import br.com.loja.models.pessoa.Vendedor;
